@@ -1,34 +1,25 @@
 var number;
 number=prompt("Sayı giriniz");
 document.write("Verilen sayı : "+number+'<br>');
-console.log(1)
 if(isNumberSecretKey(number) && checkIfNumberUnder1(number)){
-    console.log(1)
     howManyNumbers(number);
-    console.log(2)
     plusAllNumber(number);
-    console.log(3)
     oddNumber(number);
-    console.log(4)
     plusOddNumber(number);
-    console.log(5)
     showOddNumber(number);
-    console.log(6)
     evenNumber(number);
-    console.log(7)
     plusEvenNumber(number);
-    console.log(8)
     showEvenNumber(number);
 }
 
 //1.adım: kaç tane sayı var ?
 function howManyNumbers(number){
     var numberOfNumber=0;
-    while ( numberOfNumber <= number) {
-        if(checkIfExist7){
+    for (var i=1; i <= number; i++) {
+        if(checkIfExist7(i)){
             continue;
         }
-        if(checkIfMore100){
+        if(checkIfMore100(i)){
             break;
         }
         numberOfNumber++;
@@ -39,10 +30,10 @@ function howManyNumbers(number){
 function plusAllNumber(number) {
     var plus=0;
     for(var i=1 ; i<=number ; i++){
-        if(checkIfExist7){
+        if(checkIfExist7(i)){     
             continue;
         }
-        if(checkIfMore100){
+        if(checkIfMore100(i)){
             break;
         }
         plus+=i;
@@ -52,11 +43,11 @@ function plusAllNumber(number) {
 //3.adım: kaç tane tek  sayı var ?
 function oddNumber(number){
     var oddNumberOfNumber=0;
-    while( oddNumberOfNumber <= number){
-        if(number%2==0 || checkIfExist7){
+    for(var i=1; i <= number; i++){
+        if(i%2==0 || checkIfExist7(i)){
             continue;
         }
-        if(checkIfMore100){
+        if(checkIfMore100(i)){
             break;
         }
         oddNumberOfNumber++;
@@ -67,10 +58,10 @@ function oddNumber(number){
 function plusOddNumber(number){
     var plusOdd=0;
     for(var i=1 ; i<=number ; i++){
-        if(number%2==0 || checkIfExist7){
+        if(i%2==0 || checkIfExist7(i)){
             continue;
         }
-        if(checkIfMore100){
+        if(checkIfMore100(i)){
             break;
         }
         plusOdd+=i;
@@ -81,10 +72,10 @@ function plusOddNumber(number){
 function showOddNumber(number){
     document.write("Tek sayılar : 0");
     for(var i=1; i<=number; i++){
-        if(number%2==0 || checkIfExist7){
+        if(i%2==0 || checkIfExist7(i)){
             continue;
         }
-        if(checkIfMore100){
+        if(checkIfMore100(i)){
             break;
         }
         document.write("-"+i);
@@ -94,11 +85,11 @@ function showOddNumber(number){
 //6.adım: kaç tane çift  sayı var ?
 function evenNumber(number){
     var evenNumberOfNumber=0;
-    while( evenNumberOfNumber <= number){
-        if(number%2==1){
+    for(var i=1; i <= number; i++){
+        if(i%2==1){
             continue;
         }
-        if(checkIfMore100){
+        if(checkIfMore100(i)){
             break;
         }
         evenNumberOfNumber++;
@@ -109,10 +100,10 @@ function evenNumber(number){
 function plusEvenNumber(number){
     var plusEven=0;
     for(var i=1 ; i<=number ; i++){
-        if(number%2==1){
+        if(i%2==1){
             continue;
         }
-        if(checkIfMore100){
+        if(checkIfMore100(i)){
             break;
         }
         plusEven+=i;
@@ -123,10 +114,10 @@ function plusEvenNumber(number){
 function showEvenNumber(number){
     document.write("Çift sayılar : 0");
     for(var i=1; i<=number; i++){
-        if(number%2==1 ){
+        if(i%2==1 ){
             continue;
         }
-        if(checkIfMore100){
+        if(checkIfMore100(i)){
             break;
         }
         document.write("-"+i);
@@ -135,14 +126,14 @@ function showEvenNumber(number){
 }
 //Eğer verilen sayılarda 7 sayısı varsa bunu eklemesin (continue)
 function checkIfExist7(number){
-    if(number >= 7){
+    if(number == 7){
         return true;
     }
     return false;
 }
 //Eğer bitiş sayısı 100 fazla ise 100'e kadar olanlar toplansın (break)
 function checkIfMore100(number){
-    if(number > 100){
+    if(number >= 100){
         return true;
     }
     return false;
