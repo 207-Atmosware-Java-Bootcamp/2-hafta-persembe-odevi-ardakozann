@@ -1,14 +1,26 @@
+// Örnek:1ile kullanıcının vereceği(prompt)bitiş sayısına göre
+// kullanci:5verdi diyelim1<=X<=5
+//1.adım:kaç tane sayı var?
+//2.adım:sayı toplamları var?
+//3.adım:kaç tane tek sayı var?
+//4.adım:tek sayılar toplamı?
+//5.adım:tek sayılar gösterelim?
+//6.adım:kaç tane çift sayı var?
+//7.adım:çift sayılar toplamı?
+//8.adım:çift sayılar gösterelim?
+// Eğer verilen sayılarda7sayısı varsa bunu eklemesin(continue)
+// Eğer bitiş sayısı 100 fazla ise 100'e kadar olanlar toplansın(break)
+// Eğer kullanıcı başlangıç sayıdan küçük girerse uyaralım başlangıçtan büyük girmesini isteyelim
+// Eğer kullanıcı secret-key girerse yani 44 sayısını girerse program çalışmayı direk durdursun
 var number;
 number=prompt("Sayı giriniz");
 document.write("Verilen sayı : "+number+'<br>');
 if(isNumberSecretKey(number) && checkIfNumberUnder1(number)){
-    howManyNumbers(number);
+    allNumbers(number);
     oddNumber(number);
     evenNumber(number);
 }
-
-//1.adım: kaç tane sayı var ?
-function howManyNumbers(number){
+function allNumbers(number){ //tüm sayılar için
     var numberOfNumber=0;
     var plus=0;
     for (var i=1; i <= number; i++) {
@@ -24,8 +36,7 @@ function howManyNumbers(number){
     document.write("Sayı adeti : "+numberOfNumber+'<br>');
     document.write("Sayıların toplamı : "+plus+'<br>');
 }
-//3.adım: kaç tane tek  sayı var ?
-function oddNumber(number){
+function oddNumber(number){ //tek sayılar için
     var oddNumberOfNumber=0;
     var plusOdd=0;
     document.write("Tek sayılar : 0");
@@ -43,8 +54,7 @@ function oddNumber(number){
     document.write('<br>'+"Tek sayı adeti : "+oddNumberOfNumber);
     document.write('<br>'+"Tek sayıların toplamı : "+plusOdd+'<br>');
 }
-//6.adım: kaç tane çift  sayı var ?
-function evenNumber(number){
+function evenNumber(number){ //çift sayılar için
     var evenNumberOfNumber=0;
     var plusEven=0;
     document.write("Çift sayılar : 0");
@@ -62,30 +72,26 @@ function evenNumber(number){
     document.write('<br>'+"Çift sayı adeti : "+evenNumberOfNumber);
     document.write('<br>'+"Çift sayıların toplamı : "+plusEven);
 }
-//Eğer verilen sayılarda 7 sayısı varsa bunu eklemesin (continue)
-function checkIfExist7(number){
+function checkIfExist7(number){ //sayıda 7 var mı kontrolü
     if(number == 7){
         return true;
     }
     return false;
 }
-//Eğer bitiş sayısı 100 fazla ise 100'e kadar olanlar toplansın (break)
-function checkIfMore100(number){
+function checkIfMore100(number){ //sayı 100'den büyük mü kontrolü
     if(number >= 100){
         return true;
     }
     return false;
 }
-//Eğer kullanıcı başlangıç sayıdan küçük girerse uyaralım başlangıçtan büyük girmesini isteyelim
-function checkIfNumberUnder1(number) {
+function checkIfNumberUnder1(number) { //sayı 1'den küçük mü kontrolü
     if(number<1){
         alert("Başlangıç sayısından büyük bir değer giriniz.");
         return false;
     }
     return true;
 }
-//Eğer kullanıcı secret-key girerse yani 44 sayısını girerse program çalışmadan dursun 
-function isNumberSecretKey(number) {
+function isNumberSecretKey(number) { //sayı 44 mü kontrolü
     if(number==44){
         return false;
     }
